@@ -6,7 +6,12 @@
       <sourceFolder url="file://$MODULE_DIR$/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/transvoxel-data/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/transvoxel-data/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/transvoxel-data/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/transvoxel-data/benches" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/transvoxel-data/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

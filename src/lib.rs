@@ -1,3 +1,7 @@
+extern crate noise;
+
+mod data;
+
 #[cfg(test)]
 mod tests {
     #[test]
