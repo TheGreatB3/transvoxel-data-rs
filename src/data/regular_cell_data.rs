@@ -31,3 +31,22 @@ pub const REGULAR_CELL_CLASS: [u8; 256] = [
     0x04, 0x07, 0x0A, 0x0E, 0x0B, 0x0E, 0x0E, 0x02, 0x0C, 0x0F, 0x04, 0x0D, 0x04, 0x0D, 0x03, 0x01,
     0x03, 0x04, 0x04, 0x03, 0x04, 0x03, 0x0D, 0x01, 0x04, 0x0D, 0x03, 0x01, 0x03, 0x01, 0x01, 0x00,
 ];
+
+pub const REGULAR_CELL_DATA: [RegularCellData; 16] = [
+    RegularCellData {geometry_counts: 0x00, vertex_index: [0; 15]},
+    RegularCellData {geometry_counts: 0x31, vertex_index: [0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+    RegularCellData {geometry_counts: 0x62, vertex_index: [0, 1, 2, 3, 4, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+    RegularCellData {geometry_counts: 0x42, vertex_index: [0, 1, 2, 0, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+    RegularCellData {geometry_counts: 0x53, vertex_index: [0, 1, 4, 1, 3, 4, 1, 2, 3, 0, 0, 0, 0, 0, 0]},
+    RegularCellData {geometry_counts: 0x73, vertex_index: [0, 1, 2, 0, 2, 3, 4, 5, 6, 0, 0, 0, 0, 0, 0]},
+    RegularCellData {geometry_counts: 0x93, vertex_index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 0, 0, 0, 0, 0]},
+    RegularCellData {geometry_counts: 0x84, vertex_index: [0, 1, 4, 1, 3, 4, 1, 2, 3, 5, 6, 7, 0, 0, 0]},
+    RegularCellData {geometry_counts: 0x84, vertex_index: [0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 0, 0, 0]},
+    RegularCellData {geometry_counts: 0xC4, vertex_index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0, 0, 0]},
+    RegularCellData {geometry_counts: 0x64, vertex_index: [0, 4, 5, 0, 1, 4, 1, 3, 4, 1, 2, 3, 0, 0, 0]},
+    RegularCellData {geometry_counts: 0x64, vertex_index: [0, 5, 4, 0, 4, 1, 1, 4, 3, 1, 3, 2, 0, 0, 0]},
+    RegularCellData {geometry_counts: 0x64, vertex_index: [0, 4, 5, 0, 3, 4, 0, 1, 3, 1, 2, 3, 0, 0, 0]},
+    RegularCellData {geometry_counts: 0x64, vertex_index: [0, 1, 2, 0, 2, 3, 0, 3, 4, 0, 4, 5, 0, 0, 0]},
+    RegularCellData {geometry_counts: 0x75, vertex_index: [0, 1, 2, 0, 2, 3, 0, 3, 4, 0, 4, 5, 0, 5, 6]},
+    RegularCellData {geometry_counts: 0x95, vertex_index: [0, 4, 5, 0, 3, 4, 0, 1, 3, 1, 2, 3, 6, 7, 8]},
+];
