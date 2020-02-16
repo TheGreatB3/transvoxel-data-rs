@@ -106,3 +106,7 @@ pub const TRANSITION_CELL_DATA: [TransitionCellData; 56] = [
     TransitionCellData {geometry_counts: 0xA8, vertex_index: [0, 1, 5, 1, 4, 5, 1, 2, 4, 2, 3, 4, 3, 6, 7, 3, 7, 4, 0, 8, 9, 0, 5, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
     TransitionCellData {geometry_counts: 0xA8, vertex_index: [0, 1, 5, 1, 4, 5, 1, 2, 4, 2, 3, 4, 2, 6, 3, 3, 6, 7, 0, 8, 9, 0, 5, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
 ];
+
+pub const TRANSITION_CORNER_DATA: [u8; 13] = [
+    0x30, 0x21, 0x20, 0x12, 0x40, 0x82, 0x10, 0x81, 0x80, 0x37, 0x27, 0x17, 0x87
+];
