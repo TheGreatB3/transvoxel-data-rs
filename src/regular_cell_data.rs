@@ -8,6 +8,8 @@ pub struct RegularCellData {
     /// High nibble is vertex count; low nibble is triangle count.
     geometry_counts: u8,
     /// Groups of 3 indices giving the triangulation.
+    ///
+    /// A value of `-1u8` is used for padding the array.
     pub vertex_index: [u8; 15],
 }
 
@@ -45,6 +47,8 @@ pub const REGULAR_CELL_CLASS: [u8; 256] = [
 
 /// Holds the triangulation data for all 16 distinct classes to which a case can be mapped by the
 /// `REGULAR_CELL_CLASS` table.
+///
+/// A value of `-1u8` is used for padding the array.
 pub const REGULAR_CELL_DATA: [RegularCellData; 16] = [
     RegularCellData {geometry_counts: 0x00, vertex_index: [-1; 15]},
     RegularCellData {geometry_counts: 0x31, vertex_index: [0, 1, 2, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]},

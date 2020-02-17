@@ -8,6 +8,8 @@ pub struct TransitionCellData {
     /// High nibble is vertex count; low nibble is triangle count.
     geometry_counts: u8,
     /// Groups of 3 indices giving the triangulation.
+    ///
+    /// A value of `-1u8` is used for padding the array.
     pub vertex_index: [u8; 36],
 }
 
@@ -70,6 +72,7 @@ pub const TRANSITION_CELL_CLASS: [u8; 512] = [
 ///
 /// The class index should be ANDed with `0x7F` before using it to look up the triangulation data
 /// in this table.
+/// A value of `-1u8` is used for padding the array.
 pub const TRANSITION_CELL_DATA: [TransitionCellData; 56] = [
     TransitionCellData {geometry_counts: 0x00, vertex_index: [-1; 36]},
     TransitionCellData {geometry_counts: 0x42, vertex_index: [0, 1, 3, 1, 2, 3, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]},
