@@ -8,7 +8,7 @@ pub struct RegularCellData {
     /// High nibble is vertex count; low nibble is triangle count.
     geometry_counts: u8,
     /// Groups of 3 indices giving the triangulation.
-    vertex_index: [u8; 15],
+    pub vertex_index: [u8; 15],
 }
 
 impl RegularCellData {
