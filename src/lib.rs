@@ -1,6 +1,5 @@
 extern crate noise;
 
-mod data;
 pub mod regular_cell_data;
 pub mod transition_cell_data;
 
