@@ -1,18 +1,31 @@
+/// Holds information about the triangulation used for a single equivalence class in the modified
+/// Marching Cubes algorithm.
 pub struct TransitionCellData {
+    /// High nibble is vertex count; low nibble is triangle count.
     geometry_counts: u8,
+    /// Groups of 3 indices giving the triangulation.
     vertex_index: [u8; 36],
 }
 
 impl TransitionCellData {
+    /// Gets the vertex count from `TransitionCellData::geometry_counts`.
     pub fn get_vertex_count(&self) -> u8 {
         self.geometry_counts >> 4
     }
 
+    /// Gets the triangle count from `TransitionCellData::geometry_counts`.
     pub fn get_triangle_count(&self) -> u8 {
         self.geometry_counts & 0x0F
     }
 }
 
+/// Maps a 9-bit transition cell case index to an equivalence class index.
+///
+/// Even though there are 73 equivalence classes in the Transvoxel algorithm, several of them use
+/// the same exact triangulations, just with different vertex locations.  We combined those classes
+/// for this table so that the class index ranges from 0 to 55.
+/// The high bit is set in the cases for which the inverse state of the voxel data maps to the
+/// equivalence class, meaning that the winding order should be reversed.
 pub const TRANSITION_CELL_CLASS: [u8; 512] = [
     0x00, 0x01, 0x02, 0x84, 0x01, 0x05, 0x04, 0x04, 0x02, 0x87, 0x09, 0x8C, 0x84, 0x0B, 0x05, 0x05,
     0x01, 0x08, 0x07, 0x8D, 0x05, 0x0F, 0x8B, 0x0B, 0x04, 0x0D, 0x0C, 0x1C, 0x04, 0x8B, 0x85, 0x85,
@@ -48,6 +61,11 @@ pub const TRANSITION_CELL_CLASS: [u8; 512] = [
     0x85, 0x85, 0x8B, 0x04, 0xA6, 0x25, 0x07, 0x82, 0x84, 0x84, 0x85, 0x81, 0x04, 0x82, 0x81, 0x80,
 ];
 
+/// Holds the triangulation data for all 56 distinct classes to which a case can be mapped by the
+/// `TRANSITION_CELL_CLASS` table.
+///
+/// The class index should be ANDed with `0x7F` before using it to look up the triangulation data
+/// in this table.
 pub const TRANSITION_CELL_DATA: [TransitionCellData; 56] = [
     TransitionCellData {geometry_counts: 0x00, vertex_index: [0; 36]},
     TransitionCellData {geometry_counts: 0x42, vertex_index: [0, 1, 3, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
@@ -107,10 +125,17 @@ pub const TRANSITION_CELL_DATA: [TransitionCellData; 56] = [
     TransitionCellData {geometry_counts: 0xA8, vertex_index: [0, 1, 5, 1, 4, 5, 1, 2, 4, 2, 3, 4, 2, 6, 3, 3, 6, 7, 0, 8, 9, 0, 5, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
 ];
 
+/// Contains the transition cell corner reuse data.
 pub const TRANSITION_CORNER_DATA: [u8; 13] = [
     0x30, 0x21, 0x20, 0x12, 0x40, 0x82, 0x10, 0x81, 0x80, 0x37, 0x27, 0x17, 0x87
 ];
 
+/// Gives the vertex locations for every one of the 512 possible cases in the Transvoxel algorithm.
+///
+/// Each 16-bit value also provides information about whether a vertex can be reused from a
+/// neighboring cell.
+/// The low byte contains the indices for the two endpoints of the edge on which the vertex lies.
+/// The high byte contains the vertex reuse data.
 pub const TRANSITION_VERTEX_DATA: [[u16; 12]; 512] = [
     [0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000],
     [0x2301, 0x1503, 0x199B, 0x289A, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000],
