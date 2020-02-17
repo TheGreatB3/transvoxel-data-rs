@@ -1,9 +1,10 @@
 [package]
 name = "transvoxel-data"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Briggs Baltzell <briggsbaltzellb3@gmail.com>"]
 edition = "2018"
 description = "The tables necessary to implement the Transvoxel algorithm."
+repository = "https://github.com/TheGreatB3/transvoxel-data-rs"
 keywords = ["voxel", "transvoxel"]
 categories = ["game-development"]
 license = "MIT"
