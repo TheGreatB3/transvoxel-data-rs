@@ -1,3 +1,6 @@
+// The following data originates from Eric Lengyel's Transvoxel Algorithm.
+// http://transvoxel.org/
+
 /// Holds information about the triangulation used for a single equivalence class in the modified
 /// Marching Cubes algorithm.
 #[derive(Debug, Copy, Clone, Eq, PartialEq)]
