@@ -1,9 +1,8 @@
 [package]
-name = "transvoxel-rs"
+name = "transvoxel-data"
 version = "0.1.0"
-authors = ["Briggs <b3apollo13@gmail.com>"]
+authors = ["Briggs Baltzell <briggsbaltzellb3@gmail.com>"]
 edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "MIT"
 
 [dependencies]
