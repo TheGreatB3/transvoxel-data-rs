@@ -9,7 +9,7 @@ pub struct RegularCellData {
     geometry_counts: u8,
     /// Groups of 3 indices giving the triangulation.
     ///
-    /// A value of `-1u8` is used for padding the array.
+    /// A value of `!0` is used for padding the array.
     pub vertex_index: [u8; 15],
 }
 
@@ -48,22 +48,22 @@ pub const REGULAR_CELL_CLASS: [u8; 256] = [
 /// Holds the triangulation data for all 16 distinct classes to which a case can be mapped by the
 /// `REGULAR_CELL_CLASS` table.
 ///
-/// A value of `-1u8` is used for padding the array.
+/// A value of `!0` is used for padding the array.
 pub const REGULAR_CELL_DATA: [RegularCellData; 16] = [
-    RegularCellData {geometry_counts: 0x00, vertex_index: [-1; 15]},
-    RegularCellData {geometry_counts: 0x31, vertex_index: [0, 1, 2, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]},
-    RegularCellData {geometry_counts: 0x62, vertex_index: [0, 1, 2, 3, 4, 5, -1, -1, -1, -1, -1, -1, -1, -1, -1]},
-    RegularCellData {geometry_counts: 0x42, vertex_index: [0, 1, 2, 0, 2, 3, -1, -1, -1, -1, -1, -1, -1, -1, -1]},
-    RegularCellData {geometry_counts: 0x53, vertex_index: [0, 1, 4, 1, 3, 4, 1, 2, 3, -1, -1, -1, -1, -1, -1]},
-    RegularCellData {geometry_counts: 0x73, vertex_index: [0, 1, 2, 0, 2, 3, 4, 5, 6, -1, -1, -1, -1, -1, -1]},
-    RegularCellData {geometry_counts: 0x93, vertex_index: [0, 1, 2, 3, 4, 5, 6, 7, 8, -1, -1, -1, -1, -1, -1]},
-    RegularCellData {geometry_counts: 0x84, vertex_index: [0, 1, 4, 1, 3, 4, 1, 2, 3, 5, 6, 7, -1, -1, -1]},
-    RegularCellData {geometry_counts: 0x84, vertex_index: [0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, -1, -1, -1]},
-    RegularCellData {geometry_counts: 0xC4, vertex_index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, -1, -1, -1]},
-    RegularCellData {geometry_counts: 0x64, vertex_index: [0, 4, 5, 0, 1, 4, 1, 3, 4, 1, 2, 3, -1, -1, -1]},
-    RegularCellData {geometry_counts: 0x64, vertex_index: [0, 5, 4, 0, 4, 1, 1, 4, 3, 1, 3, 2, -1, -1, -1]},
-    RegularCellData {geometry_counts: 0x64, vertex_index: [0, 4, 5, 0, 3, 4, 0, 1, 3, 1, 2, 3, -1, -1, -1]},
-    RegularCellData {geometry_counts: 0x64, vertex_index: [0, 1, 2, 0, 2, 3, 0, 3, 4, 0, 4, 5, -1, -1, -1]},
+    RegularCellData {geometry_counts: 0x00, vertex_index: [!0; 15]},
+    RegularCellData {geometry_counts: 0x31, vertex_index: [0, 1, 2, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0]},
+    RegularCellData {geometry_counts: 0x62, vertex_index: [0, 1, 2, 3, 4, 5, !0, !0, !0, !0, !0, !0, !0, !0, !0]},
+    RegularCellData {geometry_counts: 0x42, vertex_index: [0, 1, 2, 0, 2, 3, !0, !0, !0, !0, !0, !0, !0, !0, !0]},
+    RegularCellData {geometry_counts: 0x53, vertex_index: [0, 1, 4, 1, 3, 4, 1, 2, 3, !0, !0, !0, !0, !0, !0]},
+    RegularCellData {geometry_counts: 0x73, vertex_index: [0, 1, 2, 0, 2, 3, 4, 5, 6, !0, !0, !0, !0, !0, !0]},
+    RegularCellData {geometry_counts: 0x93, vertex_index: [0, 1, 2, 3, 4, 5, 6, 7, 8, !0, !0, !0, !0, !0, !0]},
+    RegularCellData {geometry_counts: 0x84, vertex_index: [0, 1, 4, 1, 3, 4, 1, 2, 3, 5, 6, 7, !0, !0, !0]},
+    RegularCellData {geometry_counts: 0x84, vertex_index: [0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, !0, !0, !0]},
+    RegularCellData {geometry_counts: 0xC4, vertex_index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, !0, !0, !0]},
+    RegularCellData {geometry_counts: 0x64, vertex_index: [0, 4, 5, 0, 1, 4, 1, 3, 4, 1, 2, 3, !0, !0, !0]},
+    RegularCellData {geometry_counts: 0x64, vertex_index: [0, 5, 4, 0, 4, 1, 1, 4, 3, 1, 3, 2, !0, !0, !0]},
+    RegularCellData {geometry_counts: 0x64, vertex_index: [0, 4, 5, 0, 3, 4, 0, 1, 3, 1, 2, 3, !0, !0, !0]},
+    RegularCellData {geometry_counts: 0x64, vertex_index: [0, 1, 2, 0, 2, 3, 0, 3, 4, 0, 4, 5, !0, !0, !0]},
     RegularCellData {geometry_counts: 0x75, vertex_index: [0, 1, 2, 0, 2, 3, 0, 3, 4, 0, 4, 5, 0, 5, 6]},
     RegularCellData {geometry_counts: 0x95, vertex_index: [0, 4, 5, 0, 3, 4, 0, 1, 3, 1, 2, 3, 6, 7, 8]},
 ];
