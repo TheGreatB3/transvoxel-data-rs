@@ -3,7 +3,7 @@
 
 /// Holds information about the triangulation used for a single equivalence class in the modified
 /// Marching Cubes algorithm.
-#[derive(Debug, Copy, Clone, Eq, PartialEq)]
+#[derive(Copy, Clone)]
 pub struct TransitionCellData {
     /// High nibble is vertex count; low nibble is triangle count.
     geometry_counts: u8,
