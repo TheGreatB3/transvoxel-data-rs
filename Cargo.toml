@@ -1,6 +1,6 @@
 [package]
 name = "transvoxel-data"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Briggs Baltzell <briggsbaltzellb3@gmail.com>"]
 edition = "2018"
 description = "The tables necessary to implement the Transvoxel algorithm."
